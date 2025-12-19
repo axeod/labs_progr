@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторная №5 — JS элементы</title>
+
+  <!-- Твой общий стиль сайта (шапка/шрифты/и т.д.) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Стиль только для этой лабы -->
+  <link rel="stylesheet" href="lab5.css" />
+</head>
+
+<body class="page-home">
+  <!-- ===== HEADER (как у тебя на сайте) ===== -->
+  <header>
+    <div>
+  <div class="logo">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Логотип">
+    </a>
+  </div>      <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="lab5.html" class="about-us">Диаграмма</a>
+        <a href="login.html" class="login-link">Войти</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PAGE ===== -->
+  <main class="lab5">
+    <div class="lab5-container">
+      <h1>Лабораторная работа №5</h1>
+      <p class="lab5-subtitle">5.1 Слайдер · 5.2 Калькулятор · 5.3 Столбчатая · 5.4 Круговая диаграмма</p>
+
+      <!-- ===== 5.1 Carousel ===== -->
+      <section class="lab-card">
+        <h2>5.1 Слайдер (Carousel)</h2>
+
+        <div class="carousel">
+          <button class="btn" id="prevSlide" type="button">◀</button>
+
+          <div class="carousel-view">
+            <img id="slideImg" src="images/cars.png" alt="Слайд">
+            <div class="carousel-caption" id="slideCaption">Слайд 1</div>
+          </div>
+
+          <button class="btn" id="nextSlide" type="button">▶</button>
+        </div>
+
+        <div class="carousel-dots" id="dots"></div>
+      </section>
+
+      <!-- ===== 5.2 Calculator ===== -->
+      <section class="lab-card">
+        <h2>5.2 Калькулятор стоимости услуг</h2>
+
+        <div class="calc-grid">
+          <div class="field">
+            <label for="serviceType">Услуга</label>
+            <select id="serviceType">
+              <option value="1000">Консультация (1000 ₽)</option>
+              <option value="2500">Подбор портфеля (2500 ₽)</option>
+              <option value="4000">Сопровождение (4000 ₽)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="qty">Количество</label>
+            <input id="qty" type="number" min="1" value="1" />
+          </div>
+
+          <div class="field">
+            <label for="discount">Скидка (%)</label>
+            <input id="discount" type="number" min="0" max="100" value="0" />
+          </div>
+
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn primary" id="calcCostBtn" type="button">Рассчитать</button>
+          </div>
+        </div>
+
+        <div class="result-box">
+          Итог: <strong><span id="costResult">0</span> ₽</strong>
+        </div>
+      </section>
+
+      <!-- ===== 5.3 Bar chart ===== -->
+      <section class="lab-card">
+        <h2>5.3 Столбчатая диаграмма</h2>
+
+        <p class="hint">Нажми “Сгенерировать” — JS задаст значения и высоту столбцов.</p>
+
+        <div class="chart-controls">
+          <button class="btn" id="genBars" type="button">Сгенерировать</button>
+          <button class="btn" id="randomBars" type="button">Рандом</button>
+        </div>
+
+        <div class="bar-chart" id="barChart">
+          <!-- bars injected by JS -->
+        </div>
+      </section>
+
+      <!-- ===== 5.4 Pie chart ===== -->
+      <section class="lab-card">
+        <h2>5.4 Круговая диаграмма</h2>
+
+        <p class="hint">Доли задаются в процентах. Сумма может быть любой — JS нормализует.</p>
+
+        <div class="pie-grid">
+          <div class="pie" id="pie"></div>
+
+          <div class="pie-controls">
+            <div class="field">
+              <label for="p1">Акции (%)</label>
+              <input id="p1" type="number" min="0" value="50" />
+            </div>
+            <div class="field">
+              <label for="p2">Облигации (%)</label>
+              <input id="p2" type="number" min="0" value="30" />
+            </div>
+            <div class="field">
+              <label for="p3">Кэш (%)</label>
+              <input id="p3" type="number" min="0" value="20" />
+            </div>
+
+            <button class="btn primary" id="applyPie" type="button">Применить</button>
+
+            <div class="legend">
+              <div><span class="dot d1"></span> Акции</div>
+              <div><span class="dot d2"></span> Облигации</div>
+              <div><span class="dot d3"></span> Кэш</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="lab-footer">
+        <small>Лаба №5: реализовано на чистом HTML/CSS/JS без библиотек.</small>
+      </footer>
+    </div>
+  </main>
+
+  <script src="lab5.js" defer></script>
+</body>
+</html>

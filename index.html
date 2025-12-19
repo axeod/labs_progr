@@ -6,7 +6,8 @@
   <title>Инвестиции — Главная</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="page-home">
 
   <header>
     <div>
@@ -15,30 +16,57 @@
         <a href="about.html" class="about-us">О нас</a>
         <a href="#">Услуги</a>
         <a href="#">Контакты</a>
+        <a href="lab5.html">Диаграмма</a>
         <a href="login.html" class="login-link">Войти</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <h1>НАЧАТЬ ИНВЕСТИРОВАТЬ БЕСПЛАТНО</h1>
-    <div class="buttons">
-      <button>Открыть счёт</button>
-      <button>Я уже инвестирую</button>
-    </div>
+<section class="hero">
 
-    <div class="promo">
-      <img src="images/cars.png" alt="Изображение автомобилей">
-      <p>ОБГОНЯЕМ ИНФЛЯЦИЮ<br>С ЗАЩИТОЙ ВЛОЖЕНИЙ</p>
-    </div>
+  <!-- аккуратный контейнер для верхних кнопок -->
+  <div class="hero-actions">
+    <a href="#calcModal" class="hero-action-btn open-modal">
+      Рассчитать инвестиции
+    </a>
 
-    <div class="cards">
-      <div class="card"><img src="images/present.png" alt="Акция в подарок"></div>
-      <div class="card"><img src="images/profit.png" alt="Лучшая доходность"></div>
-      <div class="card"><img src="images/present.png" alt="Акция в подарок"></div>
-      <div class="card"><img src="images/profit.png" alt="Лучшая доходность"></div>
+    <a href="#modalInvest" class="hero-action-btn open-modal">
+      Открыть всплывающее окно
+    </a>
+  </div>
+
+  <h1>НАЧАТЬ ИНВЕСТИРОВАТЬ БЕСПЛАТНО</h1>
+
+  <div class="buttons">
+    <button>Открыть счёт</button>
+    <button>Я уже инвестирую</button>
+  </div>
+
+  <div class="promo">
+    <img src="images/cars.png" alt="Изображение автомобилей">
+    <p>
+      ОБГОНЯЕМ ИНФЛЯЦИЮ<br>
+      С ЗАЩИТОЙ ВЛОЖЕНИЙ
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card zoom-box">
+      <img src="images/present.png" alt="Акция в подарок">
     </div>
-  </section>
+    <div class="card zoom-box">
+      <img src="images/profit.png" alt="Лучшая доходность">
+    </div>
+    <div class="card zoom-box">
+      <img src="images/present.png" alt="Акция в подарок">
+    </div>
+    <div class="card zoom-box">
+      <img src="images/profit.png" alt="Лучшая доходность">
+    </div>
+  </div>
+
+</section>
+
 
   <section class="offers">
     <h2>ПРЕДЛОЖЕНИЯ ДЛЯ ИНВЕСТИЦИЙ</h2>
@@ -69,12 +97,24 @@
 
       <div class="item">
         <h3>ПИФЫ</h3>
-        <p>Готовые портфели по доступным ценам</p>
-        <img src="images/profit.png" alt="ПИФы">
+        <p>Готовые портфели</p>
+        <img src="images/pif.png" alt="ПИФы">
       </div>
     </div>
   </section>
+<div id="modalInvest" class="modal-overlay">
+  <div class="modal">
+    <a class="modal-close" href="#close" aria-label="Закрыть">×</a>
 
+    <h2>Важное сообщение</h2>
+    <p>Это модальное всплывающее окно. Пока оно открыто — фон затемнён.</p>
+
+    <div class="modal-actions">
+      <a class="modal-btn" href="login.html">Перейти к входу</a>
+      <a class="modal-btn secondary" href="#close">Закрыть</a>
+    </div>
+  </div>
+</div>
   <section class="features">
     <h2>ИНВЕСТИРУЙТЕ С НАМИ</h2>
     <div class="grid">
@@ -115,6 +155,31 @@
       <a href="#"><img src="images/Facebook.png" alt="Facebook"></a>
     </div>
   </footer>
+<div id="calcModal" class="modal-overlay">
+  <div class="modal">
+
+    <a href="#close" class="modal-close">×</a>
+
+    <h2>Калькулятор инвестиций</h2>
+
+    <form id="calcForm">
+      <label>Сумма инвестиций</label>
+      <input type="number" id="amount" placeholder="100000">
+
+      <label>Срок (лет)</label>
+      <input type="number" id="years" placeholder="3">
+
+      <label>Годовая доходность (%)</label>
+      <input type="number" id="rate" placeholder="12">
+
+      <button type="button" id="calcBtn">Рассчитать</button>
+
+      <p>Итоговая сумма: <strong><span id="result">0</span> ₽</strong></p>
+    </form>
+
+  </div>
+</div>
+<script src="script.js" defer></script>
 
 </body>
 </html>
